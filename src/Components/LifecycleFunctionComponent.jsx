@@ -1,9 +1,15 @@
 import React, {useEffect, useState} from "react";
 
+const Count = ({count}) => <p>Счетчик: {count}</p>
+const ExportCount = React.memo(Count, (prevProps, nextProps) => {
+    console.log(prevProps,nextProps);
+
+    return nextProps.count % 2 !== 0;
+})
 const LifecycleFunctionComponent = () => {
 
     const [count, setCount] = useState(0);
-    const increment = () => setCount(count + 1)
+    const increment = () => setCount(count + 1);
 
     useEffect(() => {
         async function login() {
@@ -38,7 +44,7 @@ const LifecycleFunctionComponent = () => {
     return (
         <div>
             <h2>Function Component</h2>
-            <p>Счетчик: {count}</p>
+            <ExportCount count={count}/>
             <button onClick={increment}>Увеличить</button>
         </div>
     )

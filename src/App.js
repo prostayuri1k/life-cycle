@@ -1,6 +1,7 @@
 import './App.css';
 import LifecycleClassComponent from "./Components/LifecycleClassComponent";
 import LifecycleFunctionComponent from "./Components/LifecycleFunctionComponent";
+import React from "react";
 
 
 
